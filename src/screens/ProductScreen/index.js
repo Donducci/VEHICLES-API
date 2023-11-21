@@ -1,9 +1,11 @@
-import { View, Text, SafeAreaView } from "react-native"
+import { View, Text, SafeAreaView, Button } from "react-native"
+import { useNavigation } from '@react-navigation/native';
 import {useSelector} from 'react-redux'
 import styles from './styles'
 
 const ProductScreen = () => {
   const product = useSelector((state) => state.vehicle.product)
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -15,6 +17,7 @@ const ProductScreen = () => {
         </View>
       ))
     }
+    <Button title="Go to Home" onPress={() => navigation.navigate('Year')} />
   </SafeAreaView>
   )
 }
